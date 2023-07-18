@@ -68,6 +68,10 @@ class AppStrings {
   static String continueButton = "Continue";
   static String otpHasNotBeenSent = "OTP has not been sent?";
   static String resendOtp = "Resend OTP";
+  static String sentOnOTP="We have sent an OTP on";
+  static String dummyEmail="abcd@gmail.com";
+  static String verifyEmail="Verify Email";
+  static String verifyAccount="Verify Your Account";
 }
 
 class ErrorMessages {
