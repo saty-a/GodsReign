@@ -30,6 +30,7 @@ class AppStrings {
   static String apple = "Apple";
   static String forgotPassword = "Forgot password ?";
   static String forgotPasswordPage = "Forgot password";
+  static String changePasswordPage = "Change new password";
   static String dontHaveAnAccount = "Don't have an account ?";
   static String register = "Register";
   static String loginWithOtpScreen = "Enter your mobile number to get OTP";

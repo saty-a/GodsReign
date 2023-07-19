@@ -252,7 +252,7 @@ class AuthSignupView extends GetView<AuthSignupController> {
                       /// Sign up button
                       CommonButton(
                         isDisabled:
-                            controller.buttonEnabled == true ? false : true,
+                            controller.buttonEnabled.value == true ? false : true,
                         buttonText: AppStrings.signUpButton,
                         textStyle:
                             Styles.tsb18.copyWith(color: AppColors.white),

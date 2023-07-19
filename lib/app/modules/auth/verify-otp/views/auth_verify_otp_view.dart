@@ -105,7 +105,8 @@ class AuthVerifyOtpView extends GetView<AuthVerifyOtpController> {
                         30.hb,
                         GestureDetector(
                           onTap: (){
-
+                            Navigator.pushNamed(
+                                context, Routes.CHANGE_PASSWORD);
                           },
                             child: Text(
                           AppStrings.resendOtp,
@@ -119,13 +120,13 @@ class AuthVerifyOtpView extends GetView<AuthVerifyOtpController> {
                         /// Continue Button
                         CommonButton(
                             buttonText: AppStrings.verifyEmail,
-                            isDisabled: !controller.isButtonEnabled.value,
+                            isDisabled: controller.isButtonEnabled.value == false
+                                ? true
+                                : false,
                             color: AppColors.commonButton,
                             onPressed: () {
-                              controller.isButtonEnabled == true
-                                  ? Navigator.pushNamedAndRemoveUntil(
-                                      context, Routes.HOME, (route) => false)
-                                  : null;
+                              Navigator.pushNamed(
+                                  context, Routes.CHANGE_PASSWORD);
                             }),
                         14.hb,
                       ],
