@@ -1,7 +1,12 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:godreign/app/modules/widgets/textfields/textfield_heading_with%20_endText.dart';
 import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
+import 'package:godreign/widgets/buttons/play_button.dart';
+import 'package:godreign/widgets/other/matches_card.dart';
 
 import '../../../data/values/images.dart';
 import '../../../styles/app_colors.dart';
@@ -12,36 +17,244 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 120,
-        flexibleSpace: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16)
-                .copyWith(top: 12),
-            child: Column(
+      backgroundColor: AppColors.godsPrimaryGradient,
+      body: SingleChildScrollView(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Column(
               children: [
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        Colors.black,
+                        Colors.black26,
+                        Colors.transparent
+                      ],
+                    ),
+                  ),
+                  child: CarouselSlider(
+                    items: [
+                      Container(
+                        child: Image.asset(Images.cover),
+                      ),
+                      Container(
+                        child: Image.asset(Images.cover),
+                      ),
+                      Container(
+                        child: Image.asset(Images.cover),
+                      ),
+                    ],
+                    //Slider Container properties
+                    options: CarouselOptions(
+                      height: MediaQuery.of(context).size.height * .50,
+                      autoPlay: false,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      viewportFraction: 1,
+                      // onPageChanged: (index,reason){
+                      //   controller.index.value=index+1;
+                      //   debugPrint('${ controller.index.value}');
+                      // },
+                    ),
+                  ),
+                ),
+                Text(controller.titles[controller.index.value],
+                    style: Styles.tsSb16.copyWith(color: AppColors.white)),
                 10.hb,
-              Row(
-                  children: [
-                    SvgPicture.asset(Images.icHeart),
-                    const SizedBox(width: 8),
-                  ],
-                )
+                Text(
+                  controller.subTitle[controller.index.value],
+                  style: Styles.tsSb14.copyWith(color: Colors.white24),
+                ),
+                10.hb,
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Latest Matches',
+                            style:
+                                Styles.tsSb16.copyWith(color: AppColors.white),
+                          ),
+                          Text('View All',
+                              style:
+                                  Styles.tsM14.copyWith(color: AppColors.white))
+                        ],
+                      ),
+                      10.hb,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .36,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return MatchesCard(() {},
+                                gameType: 'VALORANT',
+                                date: 'Friday, October 22nd',
+                                score: '2 : 0',
+                                title:
+                                    'Valorant india invitational by Galaxy Racer',
+                                subTitle: 'India Qualifier #2: Group B',
+                                rating: '5');
+                          },
+                          itemCount: 5,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (BuildContext context, int index) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Divider(
+                                color: AppColors.black,
+                                thickness: 1,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      20.hb,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Latest Shows',
+                            style:
+                                Styles.tsSb16.copyWith(color: AppColors.white),
+                          ),
+                          Text('View All',
+                              style:
+                                  Styles.tsM14.copyWith(color: AppColors.white))
+                        ],
+                      ),
+                      10.hb,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .32,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  child: Image.asset(
+                                    Images.icPentaProSeries,
+                                    fit: BoxFit.scaleDown,
+                                    scale: 1.4,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                6.hb,
+                                Text('Taiwan Tour',
+                                    style: Styles.tsSb14
+                                        .copyWith(color: AppColors.white)),
+                                6.hb,
+                                Text(
+                                  '95.1k Viewers',
+                                  style: Styles.tsM12
+                                      .copyWith(color: AppColors.whiteShade),
+                                )
+                              ],
+                            );
+                          },
+                          itemCount: 5,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (BuildContext context, int index) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Divider(
+                                color: AppColors.black,
+                                thickness: 1,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      10.hb,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Trending Clips',
+                            style:
+                                Styles.tsSb16.copyWith(color: AppColors.white),
+                          ),
+                          Text('View All',
+                              style:
+                                  Styles.tsM14.copyWith(color: AppColors.white))
+                        ],
+                      ),
+                      10.hb,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .36,
+                        width: MediaQuery.of(context).size.width,
+                        child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ClipRRect(
+                                      child: Image.asset(
+                                        Images.icPixcelTima,
+                                        fit: BoxFit.scaleDown,
+                                        scale: 1.4,
+                                      ),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                  ],
+                                ),
+                                Positioned(
+                                  bottom: 70,
+                                  child: Row(
+                                    children: [
+                                      Image.asset(Images.icGodsEmber),
+                                      20.wb,
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                        Text('Gods Ember',
+                                            style: Styles.tsSb14.copyWith(
+                                                color: AppColors.white)),
+                                        Text('95.1k',
+                                          style: Styles.tsSb14
+                                              .copyWith(color: AppColors.white))],),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                          itemCount: 5,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (BuildContext context, int index) {
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Divider(
+                                color: AppColors.black,
+                                thickness: 1,
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
-          ),
-        ),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(20),
-            )),
-        elevation: 0,
-        backgroundColor: AppColors.primary,
-      ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+            Positioned(
+              child: PlayButton(
+                  buttonText: 'Play', onPressed: () {}, isDisabled: false),
+              top: MediaQuery.of(context).size.height * .42,
+            ),
+          ],
         ),
       ),
     );

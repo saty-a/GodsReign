@@ -59,8 +59,8 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                   SharedPreferences prefs =
                                       await SharedPreferences.getInstance();
                                   prefs.setString('token', '');
-                                  // Navigator.of(context).pushNamedAndRemoveUntil(
-                                  //     Routes.dashboard, (route) => false);
+                                  Navigator.of(context).pushNamedAndRemoveUntil(
+                                      Routes.HOME, (route) => false);
                                 },
                               ),
                             ],
@@ -200,6 +200,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                               if (controller.loginFormKey.currentState!
                                   .validate()) {
                                 controller.signUserIn;
+                                Navigator.pushNamed(context, Routes.HOME);
                                 SharedPreferences prefs =
                                 await SharedPreferences.getInstance();
                                 prefs.setString('token', 'login');

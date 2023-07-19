@@ -1,7 +1,29 @@
 import 'package:get/get.dart';
 
+import '../../../data/values/images.dart';
+
 class HomeController extends GetxController {
-  final count = 0.obs;
+  final index = 0.obs;
+
+  final List<String> imagesList = [
+    Images.cover,
+    Images.amazon,
+    Images.clockIcon,
+    Images.cover,
+  ];
+  final List<String> titles = [
+    ' Taiwan Excellence Gaming Cup 2022 ',
+    ' Tasdfiwan Excellence Gaming Cup 2022 ',
+    ' Taiwasdfn Excellence Gaming Cup 2022 ',
+    ' sdf Excellence Gaming Cup 2022 ',
+  ];
+
+  final List<String> subTitle =[
+    'Pokémon | Gods Reign',
+    'Pokémdfon | Gods Reign',
+    'sdf | Gods Reign',
+    'sdf | Gods Reign'
+  ];
 
   @override
   void onInit() {
@@ -16,5 +38,4 @@ class HomeController extends GetxController {
   @override
   void onClose() {}
 
-  void increment() => count.value++;
 }

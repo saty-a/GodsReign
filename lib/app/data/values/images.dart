@@ -102,6 +102,7 @@ class Images {
   static const paytm = "assets/images/paytm.png";
   static const amazon = "assets/images/amazon.png";
   static const applePay = "assets/images/apple_pay.png";
+  static const cover = "assets/images/taiwan.png";
   static const paypal = "assets/images/paypal.png";
   static const sbi_logo = "assets/images/sbi_logo.png";
   static const axis_logo = "assets/images/axis_logo.png";
@@ -121,6 +122,10 @@ class Images {
   static const icIPhoneGold = "assets/images/ic_iphone_gold.png";
   static const icIphoneSilver = "assets/images/ic_iphone_silver.png";
   static const icHomeBanner = "assets/images/ic_home_banner.png";
+  static const icPentaProSeries = "assets/images/penta_pro_series.png";
+  static const icGodsEmber = "assets/images/god_ember.png";
+  static const icPixcelTima = "assets/images/pexels_tima.png";
+
 
   ///wallet
   static const walletBalance = "assets/images/wallet_balance.svg";
