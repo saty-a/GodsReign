@@ -36,17 +36,22 @@ class AuthVerifyOtpView extends GetView<AuthVerifyOtpController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        color: AppColors.white,
-                      ),
-                      Text(
-                        "Back",
-                        style: Styles.tsM16.copyWith(color: AppColors.white),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.arrow_back_ios,
+                          color: AppColors.white,
+                        ),
+                        Text(
+                          "Back",
+                          style: Styles.tsM16.copyWith(color: AppColors.white),
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: Column(

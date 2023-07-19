@@ -177,8 +177,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                               ),
                               GestureDetector(
                                 onTap: (){
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context, Routes.AUTH_VERIFY_OTP, (route) => false);
+                                  Navigator.pushNamed(context, Routes.FORGOT_PASSWORD);
                                 },
                                 child: Text(AppStrings.forgotPassword,
                                     style:
