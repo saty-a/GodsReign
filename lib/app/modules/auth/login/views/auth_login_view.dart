@@ -230,7 +230,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                 questionText: AppStrings.dontHaveAnAccount,
                                 registerOrLoginText: AppStrings.signUp),
                           ),
-                          70.hb,
+                          10.hb
                         ],
                       ),
                     ),
