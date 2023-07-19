@@ -150,4 +150,12 @@ class Images {
   static const discord="assets/images/discord.svg";
 
   static const gods_reign="assets/images/gods_reign.png";
+  static const home="assets/images/home.svg";
+  static const event="assets/images/event.svg";
+  static const grt="assets/images/grt.svg";
+  static const profile="assets/images/profile.svg";
+  static const shop="assets/images/shop.svg";
+
+
+
 }

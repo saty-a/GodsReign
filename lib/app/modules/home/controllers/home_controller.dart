@@ -4,6 +4,11 @@ import '../../../data/values/images.dart';
 
 class HomeController extends GetxController {
   final index = 0.obs;
+  var menuItem=0.obs;
+
+  void onTabChange(var val){
+    menuItem.value=val;
+  }
 
   final List<String> imagesList = [
     Images.cover,
