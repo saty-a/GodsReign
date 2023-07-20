@@ -27,6 +27,7 @@ class AuthSignupView extends GetView<AuthSignupController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.godsPrimaryGradient,
         body: SafeArea(
       child: Obx(() => SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
@@ -44,11 +45,8 @@ class AuthSignupView extends GetView<AuthSignupController> {
                           Text(
                             AppStrings.signUp,
                             style:
-                                Styles.tsSb30.copyWith(color: AppColors.black),
+                                Styles.tsSb30.copyWith(color: AppColors.white),
                           ),
-                          SkipForNow(onPressed: () {
-                            //Navigator.pushNamedAndRemoveUntil(context, Routes.dashboard, (route) => false);
-                          })
                         ],
                       ),
 
@@ -136,7 +134,7 @@ class AuthSignupView extends GetView<AuthSignupController> {
                                 Text(
                                   "+91",
                                   style: Styles.tsR16
-                                      .copyWith(color: Colors.black),
+                                      .copyWith(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20.h,
@@ -256,12 +254,11 @@ class AuthSignupView extends GetView<AuthSignupController> {
                         buttonText: AppStrings.signUpButton,
                         textStyle:
                             Styles.tsb18.copyWith(color: AppColors.white),
-                        color: AppColors.primary,
+                        color: AppColors.commonButton,
                         borderRadius: 10.0,
                         onPressed: () {
                           if (controller.signUpKey.currentState!.validate()) {
-                            //Navigator.pushNamed(context, Routes.dashboard);
-                            // Navigator.pushNamedAndRemoveUntil(context, Routes.dashboard, (route) => false);
+                            Navigator.pushNamedAndRemoveUntil(context, Routes.HOME, (route) => false);
                           }
                         },
                       ),

@@ -11,7 +11,7 @@ class TextAligned extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: styles ?? Styles.tsR16.copyWith(color: AppColors.grey900),
+      style: styles ?? Styles.tsR16.copyWith(color: AppColors.white),
     );
   }
 }

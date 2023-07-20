@@ -83,6 +83,7 @@ class Images {
   static const icProduct = "assets/images/ic_product.svg";
   static const icUploadImage = "assets/images/ic_upload_image.svg";
   static const icUploadVideo = "assets/images/ic_upload_video.svg";
+  static const upload="assets/images/upload.svg";
   static const icUploadCamera = "assets/images/ic_upload_camera.svg";
   static const icCrossRound = "assets/images/ic_cross_round.svg";
   static const icWarning = "assets/images/ic_warning.svg";

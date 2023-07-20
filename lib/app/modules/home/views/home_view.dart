@@ -1,13 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:godreign/app/modules/widgets/textfields/textfield_heading_with%20_endText.dart';
 import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
 import 'package:godreign/widgets/buttons/play_button.dart';
 import 'package:godreign/widgets/other/matches_card.dart';
-
 import '../../../data/values/images.dart';
 import '../../../styles/app_colors.dart';
 import '../../../styles/text_styles.dart';
@@ -94,7 +91,7 @@ class HomeView extends GetView<HomeController> {
               Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -107,27 +104,18 @@ class HomeView extends GetView<HomeController> {
                     ),
                     child: CarouselSlider(
                       items: [
-                        Container(
-                          child: Image.asset(Images.cover),
-                        ),
-                        Container(
-                          child: Image.asset(Images.cover),
-                        ),
-                        Container(
-                          child: Image.asset(Images.cover),
-                        ),
+                        Image.asset(Images.cover),
+                        Image.asset(Images.cover),
+                        Image.asset(Images.cover),
                       ],
                       //Slider Container properties
                       options: CarouselOptions(
-                        height: MediaQuery
-                            .of(context)
-                            .size
-                            .height * .50,
+                        height: MediaQuery.of(context).size.height * .50,
                         autoPlay: false,
                         autoPlayCurve: Curves.fastOutSlowIn,
                         enableInfiniteScroll: true,
                         autoPlayAnimationDuration:
-                        const Duration(milliseconds: 800),
+                            const Duration(milliseconds: 800),
                         viewportFraction: 1,
                         // onPageChanged: (index,reason){
                         //   controller.index.value=index+1;
@@ -145,7 +133,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   10.hb,
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Column(
                       children: [
                         Row(
@@ -153,24 +141,18 @@ class HomeView extends GetView<HomeController> {
                           children: [
                             Text(
                               'Latest Matches',
-                              style:
-                              Styles.tsSb16.copyWith(color: AppColors.white),
+                              style: Styles.tsSb16
+                                  .copyWith(color: AppColors.white),
                             ),
                             Text('View All',
-                                style:
-                                Styles.tsM14.copyWith(color: AppColors.white))
+                                style: Styles.tsM14
+                                    .copyWith(color: AppColors.white))
                           ],
                         ),
                         10.hb,
                         SizedBox(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * .36,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width,
+                          height: MediaQuery.of(context).size.height * .36,
+                          width: MediaQuery.of(context).size.width,
                           child: ListView.separated(
                             itemBuilder: (context, index) {
                               return MatchesCard(() {},
@@ -178,14 +160,14 @@ class HomeView extends GetView<HomeController> {
                                   date: 'Friday, October 22nd',
                                   score: '2 : 0',
                                   title:
-                                  'Valorant india invitational by Galaxy Racer',
+                                      'Valorant india invitational by Galaxy Racer',
                                   subTitle: 'India Qualifier #2: Group B',
                                   rating: '5');
                             },
                             itemCount: 5,
                             scrollDirection: Axis.horizontal,
-                            separatorBuilder: (BuildContext context,
-                                int index) {
+                            separatorBuilder:
+                                (BuildContext context, int index) {
                               return const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 20),
                                 child: Divider(
@@ -202,36 +184,30 @@ class HomeView extends GetView<HomeController> {
                           children: [
                             Text(
                               'Latest Shows',
-                              style:
-                              Styles.tsSb16.copyWith(color: AppColors.white),
+                              style: Styles.tsSb16
+                                  .copyWith(color: AppColors.white),
                             ),
                             Text('View All',
-                                style:
-                                Styles.tsM14.copyWith(color: AppColors.white))
+                                style: Styles.tsM14
+                                    .copyWith(color: AppColors.white))
                           ],
                         ),
                         10.hb,
                         SizedBox(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * .32,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width,
+                          height: MediaQuery.of(context).size.height * .32,
+                          width: MediaQuery.of(context).size.width,
                           child: ListView.separated(
                             itemBuilder: (context, index) {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ClipRRect(
+                                    borderRadius: BorderRadius.circular(16),
                                     child: Image.asset(
                                       Images.icPentaProSeries,
                                       fit: BoxFit.scaleDown,
                                       scale: 1.4,
                                     ),
-                                    borderRadius: BorderRadius.circular(16),
                                   ),
                                   6.hb,
                                   Text('Taiwan Tour',
@@ -248,8 +224,8 @@ class HomeView extends GetView<HomeController> {
                             },
                             itemCount: 5,
                             scrollDirection: Axis.horizontal,
-                            separatorBuilder: (BuildContext context,
-                                int index) {
+                            separatorBuilder:
+                                (BuildContext context, int index) {
                               return const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 20),
                                 child: Divider(
@@ -266,40 +242,34 @@ class HomeView extends GetView<HomeController> {
                           children: [
                             Text(
                               'Trending Clips',
-                              style:
-                              Styles.tsSb16.copyWith(color: AppColors.white),
+                              style: Styles.tsSb16
+                                  .copyWith(color: AppColors.white),
                             ),
                             Text('View All',
-                                style:
-                                Styles.tsM14.copyWith(color: AppColors.white))
+                                style: Styles.tsM14
+                                    .copyWith(color: AppColors.white))
                           ],
                         ),
                         10.hb,
                         SizedBox(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * .36,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width,
+                          height: MediaQuery.of(context).size.height * .36,
+                          width: MediaQuery.of(context).size.width,
                           child: ListView.separated(
                             itemBuilder: (context, index) {
                               return Stack(
                                 alignment: Alignment.center,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       ClipRRect(
+                                        borderRadius: BorderRadius.circular(16),
                                         child: Image.asset(
                                           Images.icPixcelTima,
                                           fit: BoxFit.scaleDown,
                                           scale: 1.4,
                                         ),
-                                        borderRadius: BorderRadius.circular(16),
                                       ),
                                     ],
                                   ),
@@ -310,17 +280,17 @@ class HomeView extends GetView<HomeController> {
                                         Image.asset(Images.icGodsEmber),
                                         20.wb,
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment
-                                              .start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text('Gods Ember',
                                                 style: Styles.tsSb14.copyWith(
                                                     color: AppColors.white)),
                                             Text('95.1k',
-                                                style: Styles.tsSb14
-                                                    .copyWith(
+                                                style: Styles.tsSb14.copyWith(
                                                     color: AppColors.white))
-                                          ],),
+                                          ],
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -329,8 +299,8 @@ class HomeView extends GetView<HomeController> {
                             },
                             itemCount: 5,
                             scrollDirection: Axis.horizontal,
-                            separatorBuilder: (BuildContext context,
-                                int index) {
+                            separatorBuilder:
+                                (BuildContext context, int index) {
                               return const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 20),
                                 child: Divider(
@@ -347,12 +317,56 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               Positioned(
+                top: MediaQuery.of(context).size.height * .42,
                 child: PlayButton(
                     buttonText: 'Play', onPressed: () {}, isDisabled: false),
-                top: MediaQuery
-                    .of(context)
-                    .size
-                    .height * .42,
+              ),
+              Positioned(
+                top: 20,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        Colors.black,
+                        Colors.black26,
+                        Colors.transparent
+                      ],
+                    ),
+                  ),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * .10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SvgPicture.asset(
+                        Images.home,
+                        color: AppColors.white,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SvgPicture.asset(
+                            Images.upload,
+                            color: AppColors.white,
+                          ),
+                          20.wb,
+                          SvgPicture.asset(
+                            Images.icSearch,
+                            color: AppColors.white,
+                          ),
+                          20.wb,
+                          SvgPicture.asset(
+                            Images.icNotification,
+                            color: AppColors.white,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
