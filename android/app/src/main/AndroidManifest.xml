@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.godreign">
    <application
-        android:label="godreign"
+        android:label="God Reign"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/god_reign">
         <activity
             android:name=".MainActivity"
             android:exported="true"
