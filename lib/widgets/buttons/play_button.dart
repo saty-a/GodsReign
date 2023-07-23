@@ -29,15 +29,14 @@ class PlayButton extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20,right: 20,bottom: 10,top: 10),
       decoration:  BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-        border: Border(bottom: BorderSide.none),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.white,
-                blurRadius: 1,
-                offset: Offset(0.60, 0.82)
-            )
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: <Color>[
+            AppColors.white70,
+            AppColors.white70,
           ],
-        color: AppColors.godsPrimaryGradient,
+        ),
       ),
       child: Row(children: [
         const Icon(Icons.play_arrow_rounded,color: AppColors.white,),

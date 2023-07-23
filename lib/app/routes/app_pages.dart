@@ -8,12 +8,22 @@ import 'package:godreign/app/modules/auth/verify-otp/bindings/auth_verify_otp_bi
 import 'package:godreign/app/modules/auth/verify-otp/views/auth_verify_otp_view.dart';
 import 'package:godreign/app/modules/home/bindings/home_binding.dart';
 import 'package:godreign/app/modules/home/views/home_view.dart';
+import 'package:godreign/app/modules/profile/bindings/profile_binding.dart';
+import 'package:godreign/app/modules/profile/views/profile_view.dart';
 import 'package:godreign/app/modules/splash/bindings/splash_binding.dart';
 import 'package:godreign/app/modules/splash/views/splash_view.dart';
 
 import '../modules/auth/change-password/bindings/change_password_binding.dart';
 import '../modules/auth/change-password/views/change_password_view.dart';
 import '../modules/auth/forgot-password/bindings/fogot_password_binding.dart';
+import '../modules/dashboard/bindings/dashboard_binding.dart';
+import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/event/bindings/event_binding.dart';
+import '../modules/event/views/event_view.dart';
+import '../modules/grtv/bindings/grtv_binding.dart';
+import '../modules/grtv/views/grtv_view.dart';
+import '../modules/shop/bindings/shop_binding.dart';
+import '../modules/shop/views/shop_view.dart';
 
 part 'app_routes.dart';
 
@@ -54,5 +64,31 @@ class AppPages {
       page: () => ChangePasswordView(),
       binding:ChangePasswordBinding(),
     ),
+    GetPage(
+      name: Routes.DASHBOARD,
+      page: () => DashboardView(),
+      binding:DashboardBinding(),
+    ),
+    GetPage(
+      name: Routes.EVENT,
+      page: () => EventView(),
+      binding:EventBinding(),
+    ),
+    GetPage(
+      name: Routes.PROFILE,
+      page: () => ProfileView(),
+      binding:ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.GRT,
+      page: () => GrtvView(),
+      binding:GrtvBinding(),
+    ),
+    GetPage(
+      name: Routes.SHOP,
+      page: () => ShopView(),
+      binding:ShopBinding(),
+    ),
+
   ];
 }

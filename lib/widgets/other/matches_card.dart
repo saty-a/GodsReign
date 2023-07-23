@@ -35,11 +35,10 @@ class MatchesCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         gradient: LinearGradient(
           colors: [
-            AppColors.godsPrimaryGradient,
-            AppColors.godsSecondaryGradient
+            AppColors.white70,
+            AppColors.transparent
           ],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+
         ),
       ),
       width: MediaQuery.of(context).size.width*.90,
@@ -65,7 +64,7 @@ class MatchesCard extends StatelessWidget {
             children: [
               Image.asset(Images.gods_reign,fit: BoxFit.contain,scale: 2,),
               Text(score,style: Styles.tsSb30.copyWith(color: AppColors.white),),
-              Image.asset(Images.gods_reign,fit: BoxFit.contain,scale: 2,),
+              Image.asset(Images.global_esport,fit: BoxFit.contain,scale: 2,),
             ],
           ),
           20.hb,

@@ -60,7 +60,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                       await SharedPreferences.getInstance();
                                   prefs.setString('token', '');
                                   Navigator.of(context).pushNamedAndRemoveUntil(
-                                      Routes.HOME, (route) => false);
+                                      Routes.DASHBOARD, (route) => false);
                                 },
                               ),
                             ],

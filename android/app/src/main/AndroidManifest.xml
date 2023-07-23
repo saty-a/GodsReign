@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.godreign">
    <application
-        android:label="God Reign"
+        android:label="Gods Reign"
         android:name="${applicationName}"
         android:icon="@mipmap/god_reign">
         <activity

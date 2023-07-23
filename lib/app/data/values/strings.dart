@@ -75,6 +75,12 @@ class AppStrings {
   static String dummyEmail="abcd@gmail.com";
   static String verifyEmail="Verify Email";
   static String verifyAccount="Verify Your Account";
+
+  static String event="Event";
+  static String profile="Profile";
+  static String shop="Shop";
+  static String grtv="GR TV";
+
 }
 
 class ErrorMessages {

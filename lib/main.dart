@@ -31,7 +31,6 @@ void main() async {
         getPages: AppPages.pages,
         defaultTransition: Transition.fade,
         initialBinding: AppBinding(),
-
       ));
 }
 

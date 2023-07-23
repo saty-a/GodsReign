@@ -12,22 +12,19 @@ class HomeController extends GetxController {
 
   final List<String> imagesList = [
     Images.cover,
-    Images.amazon,
-    Images.clockIcon,
+    Images.cover,
     Images.cover,
   ];
   final List<String> titles = [
-    ' Taiwan Excellence Gaming Cup 2022 ',
-    ' Tasdfiwan Excellence Gaming Cup 2022 ',
-    ' Taiwasdfn Excellence Gaming Cup 2022 ',
-    ' sdf Excellence Gaming Cup 2022 ',
+    ' Taiwan Excellence Gaming Cup 2022',
+    ' Taiwan Excellence Gaming Cup 2022',
+    ' Taiwan Excellence Gaming Cup 2022',
   ];
 
   final List<String> subTitle =[
     'Pokémon | Gods Reign',
-    'Pokémdfon | Gods Reign',
-    'sdf | Gods Reign',
-    'sdf | Gods Reign'
+    'Pokémon | Gods Reign',
+    'Pokémon | Gods Reign',
   ];
 
   @override

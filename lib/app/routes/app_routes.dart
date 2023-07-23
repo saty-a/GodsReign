@@ -8,4 +8,9 @@ abstract class Routes {
   static const FORGOT_PASSWORD='/auth/forgot-password';
   static const CHANGE_PASSWORD='/auth/change-password';
   static const HOME = '/home';
+  static const DASHBOARD = '/dashboard';
+  static const EVENT = '/EVENT';
+  static const GRT = '/GRT';
+  static const PROFILE = '/PROFILE';
+  static const SHOP = '/SHOP';
 }

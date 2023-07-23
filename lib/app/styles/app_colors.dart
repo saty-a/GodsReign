@@ -15,6 +15,8 @@ class AppColors {
   static const grey = Color(0xFFCED3DC);
   static const black = Color(0xFF000000);
   static const white = Color(0xFFFFFFFF);
+  static const white70 = Color(0x50FFFFFF);
+  static const transparent=Color(0x00000000);
   static const complimentary = Color(0xFFCED3DC);
   static const grey100 = Color(0xFFEAECF0);
   static const grey200 = Color(0xFFD6DAE1);

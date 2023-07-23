@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:godreign/app/app.dart';
 import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
 import 'package:godreign/widgets/buttons/play_button.dart';
 import 'package:godreign/widgets/other/matches_card.dart';
@@ -15,74 +17,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(() {
       return Scaffold(
-        bottomSheet: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColors.commonButton,
-          unselectedItemColor: AppColors.white,
-          elevation: 2,
-          backgroundColor: AppColors.godsPrimaryGradient,
-          currentIndex: controller.menuItem.value,
-          onTap: (index) {
-            controller.onTabChange(index);
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Images.home,
-                color: AppColors.white,
-              ),
-              label: "Home",
-              activeIcon: SvgPicture.asset(
-                Images.home,
-                color: AppColors.commonButton,
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Images.event,
-                color: AppColors.white,
-              ),
-              label: "Event",
-              activeIcon: SvgPicture.asset(
-                Images.event,
-                color: AppColors.commonButton,
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Images.grt,
-                color: AppColors.white,
-              ),
-              label: "GR TV",
-              activeIcon: SvgPicture.asset(
-                Images.grt,
-                color: AppColors.commonButton,
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Images.shop,
-                color: AppColors.white,
-              ),
-              label: "Shop",
-              activeIcon: SvgPicture.asset(
-                Images.shop,
-                color: AppColors.commonButton,
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                Images.profile,
-                color: AppColors.white,
-              ),
-              label: "Profile",
-              activeIcon: SvgPicture.asset(
-                Images.profile,
-                color: AppColors.commonButton,
-              ),
-            ),
-          ],
-        ),
         backgroundColor: AppColors.godsPrimaryGradient,
         body: SingleChildScrollView(
           child: Stack(
@@ -102,34 +36,41 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                     ),
-                    child: CarouselSlider(
-                      items: [
-                        Image.asset(Images.cover),
-                        Image.asset(Images.cover),
-                        Image.asset(Images.cover),
-                      ],
+                    child: CarouselSlider.builder(
+                      itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+                          Image.asset(controller.imagesList[controller.index.value]),
                       //Slider Container properties
                       options: CarouselOptions(
                         height: MediaQuery.of(context).size.height * .50,
-                        autoPlay: false,
-                        autoPlayCurve: Curves.fastOutSlowIn,
+                        autoPlay: true,
                         enableInfiniteScroll: true,
                         autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
+                            const Duration(milliseconds: 1500),
                         viewportFraction: 1,
-                        // onPageChanged: (index,reason){
-                        //   controller.index.value=index+1;
-                        //   debugPrint('${ controller.index.value}');
-                        // },
-                      ),
+                        onPageChanged: (index,reason){
+                          controller.index.value=index;
+                        },
+                      ), itemCount: controller.imagesList.length,
                     ),
                   ),
                   Text(controller.titles[controller.index.value],
                       style: Styles.tsSb16.copyWith(color: AppColors.white)),
-                  10.hb,
+                  4.hb,
                   Text(
                     controller.subTitle[controller.index.value],
                     style: Styles.tsSb14.copyWith(color: Colors.white24),
+                  ),
+                  10.hb,
+                  DotsIndicator(
+                    dotsCount: controller.imagesList.length,
+                    position: controller.index.value,
+                    decorator: DotsDecorator(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+                      activeColor: AppColors.commonButton,
+                      size:const Size(40,4),
+                      activeSize: const Size(40, 4),
+                      activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+                    ),
                   ),
                   10.hb,
                   Padding(
@@ -189,7 +130,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             Text('View All',
                                 style: Styles.tsM14
-                                    .copyWith(color: AppColors.white))
+                                    .copyWith(color: AppColors.grey))
                           ],
                         ),
                         10.hb,
@@ -213,11 +154,11 @@ class HomeView extends GetView<HomeController> {
                                   Text('Taiwan Tour',
                                       style: Styles.tsSb14
                                           .copyWith(color: AppColors.white)),
-                                  6.hb,
+                                  4.hb,
                                   Text(
                                     '95.1k Viewers',
                                     style: Styles.tsM12
-                                        .copyWith(color: AppColors.whiteShade),
+                                        .copyWith(color: AppColors.grey),
                                   )
                                 ],
                               );
@@ -247,7 +188,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             Text('View All',
                                 style: Styles.tsM14
-                                    .copyWith(color: AppColors.white))
+                                    .copyWith(color: AppColors.grey))
                           ],
                         ),
                         10.hb,
@@ -263,12 +204,25 @@ class HomeView extends GetView<HomeController> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Image.asset(
-                                          Images.icPixcelTima,
-                                          fit: BoxFit.scaleDown,
-                                          scale: 1.4,
+                                      Container(
+                                        foregroundDecoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: <Color>[
+                                              Colors.transparent,
+                                              Colors.black26,
+                                              Colors.black
+                                            ],
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(20),
+                                          child: Image.asset(
+                                            Images.icPixcelTima,
+                                            fit: BoxFit.scaleDown,
+                                            scale: 1.4,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -287,8 +241,8 @@ class HomeView extends GetView<HomeController> {
                                                 style: Styles.tsSb14.copyWith(
                                                     color: AppColors.white)),
                                             Text('95.1k',
-                                                style: Styles.tsSb14.copyWith(
-                                                    color: AppColors.white))
+                                                style: Styles.tsSb12.copyWith(
+                                                    color: AppColors.grey))
                                           ],
                                         ),
                                       ],
@@ -343,7 +297,6 @@ class HomeView extends GetView<HomeController> {
                     children: [
                       SvgPicture.asset(
                         Images.home,
-                        color: AppColors.white,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

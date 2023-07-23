@@ -3,6 +3,7 @@ import 'package:godreign/app/app_controller.dart';
 import 'package:godreign/app/data/network/network_requester.dart';
 import 'package:godreign/app/data/repository/config_repository.dart';
 import 'package:godreign/app/data/repository/user_repository.dart';
+import 'package:godreign/app/modules/home/controllers/home_controller.dart';
 
 class AppBinding extends Bindings {
   @override
@@ -11,5 +12,6 @@ class AppBinding extends Bindings {
     Get.put(ConfigRepository(), permanent: true);
     Get.put(UserRepository(), permanent: true);
     Get.put(AppController(), permanent: true);
+    Get.lazyPut(() => HomeController());
   }
 }
