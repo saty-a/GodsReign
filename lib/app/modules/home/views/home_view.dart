@@ -206,8 +206,9 @@ class HomeView extends GetView<HomeController> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        foregroundDecoration: const BoxDecoration(
-                                          gradient: LinearGradient(
+                                        foregroundDecoration:  BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20),
+                                          gradient: const LinearGradient(
                                             begin: Alignment.topCenter,
                                             end: Alignment.bottomCenter,
                                             colors: <Color>[
@@ -221,7 +222,7 @@ class HomeView extends GetView<HomeController> {
                                           borderRadius: BorderRadius.circular(20),
                                           child: Image.asset(
                                             Images.icPixcelTima,
-                                            fit: BoxFit.scaleDown,
+                                            fit: BoxFit.fill,
                                             scale: 1.4,
                                           ),
                                         ),
