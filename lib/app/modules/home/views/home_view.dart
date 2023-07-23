@@ -8,6 +8,7 @@ import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
 import 'package:godreign/widgets/buttons/play_button.dart';
 import 'package:godreign/widgets/other/matches_card.dart';
 import '../../../data/values/images.dart';
+import '../../../data/values/strings.dart';
 import '../../../styles/app_colors.dart';
 import '../../../styles/text_styles.dart';
 import '../controllers/home_controller.dart';
@@ -81,11 +82,11 @@ class HomeView extends GetView<HomeController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Latest Matches',
+                              AppStrings.latestMatches,
                               style: Styles.tsSb16
                                   .copyWith(color: AppColors.white),
                             ),
-                            Text('View All',
+                            Text(AppStrings.viewAll,
                                 style: Styles.tsM14
                                     .copyWith(color: AppColors.white))
                           ],
@@ -124,11 +125,11 @@ class HomeView extends GetView<HomeController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Latest Shows',
+                              AppStrings.latestShows,
                               style: Styles.tsSb16
                                   .copyWith(color: AppColors.white),
                             ),
-                            Text('View All',
+                            Text(AppStrings.viewAll,
                                 style: Styles.tsM14
                                     .copyWith(color: AppColors.grey))
                           ],
@@ -182,11 +183,11 @@ class HomeView extends GetView<HomeController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Trending Clips',
+                              AppStrings.trendingClips,
                               style: Styles.tsSb16
                                   .copyWith(color: AppColors.white),
                             ),
-                            Text('View All',
+                            Text(AppStrings.viewAll,
                                 style: Styles.tsM14
                                     .copyWith(color: AppColors.grey))
                           ],

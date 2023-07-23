@@ -8,6 +8,7 @@ import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
 import 'package:godreign/widgets/buttons/play_button.dart';
 import 'package:godreign/widgets/other/matches_card.dart';
 import '../../../data/values/images.dart';
+import '../../../data/values/strings.dart';
 import '../../../styles/app_colors.dart';
 import '../../../styles/text_styles.dart';
 import '../../event/views/event_view.dart';
@@ -38,7 +39,7 @@ class DashboardView extends GetView<DashboardController> {
                 Images.home,
                 color: AppColors.white,
               ),
-              label: "Home",
+              label: AppStrings.home,
               activeIcon: SvgPicture.asset(
                 Images.home,
                 color: AppColors.commonButton,
@@ -49,7 +50,7 @@ class DashboardView extends GetView<DashboardController> {
                 Images.event,
                 color: AppColors.white,
               ),
-              label: "Event",
+              label: AppStrings.event,
               activeIcon: SvgPicture.asset(
                 Images.event,
                 color: AppColors.commonButton,
@@ -60,7 +61,7 @@ class DashboardView extends GetView<DashboardController> {
                 Images.grt,
                 color: AppColors.white,
               ),
-              label: "GR TV",
+              label: AppStrings.grtv,
               activeIcon: SvgPicture.asset(
                 Images.grt,
                 color: AppColors.commonButton,
@@ -71,7 +72,7 @@ class DashboardView extends GetView<DashboardController> {
                 Images.shop,
                 color: AppColors.white,
               ),
-              label: "Shop",
+              label: AppStrings.shop,
               activeIcon: SvgPicture.asset(
                 Images.shop,
                 color: AppColors.commonButton,
@@ -82,7 +83,7 @@ class DashboardView extends GetView<DashboardController> {
                 Images.profile,
                 color: AppColors.white,
               ),
-              label: "Profile",
+              label: AppStrings.profile,
               activeIcon: SvgPicture.asset(
                 Images.profile,
                 color: AppColors.commonButton,

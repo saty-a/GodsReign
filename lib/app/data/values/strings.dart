@@ -1,7 +1,8 @@
 class AppStrings {
   AppStrings._privateConstructor();
 
-  static const appName = 'Sample App';
+  static const appName = 'Gods Reign';
+  static const String home="Home";
   static const loginDescription="If You already have an account  on Gods Reign website, you can use it to log in to the app.";
   static const empty = '';
   static const mobileNumber = 'Mobile Number';
@@ -80,6 +81,10 @@ class AppStrings {
   static String profile="Profile";
   static String shop="Shop";
   static String grtv="GR TV";
+  static String latestMatches="Latest Matches";
+  static String viewAll="View All";
+  static String latestShows="Latest Shows";
+  static String trendingClips="Trending Clips";
 
 }
 

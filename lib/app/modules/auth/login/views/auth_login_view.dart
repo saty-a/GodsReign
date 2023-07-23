@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:godreign/app/data/values/strings.dart';
 import 'package:godreign/app/modules/auth/login/controllers/auth_login_controller.dart';
 import 'package:godreign/utils/widget_extensions/widget_extenions.dart';
 import 'package:godreign/widgets/text_field/custom_text_field.dart';
 import '../../../../../utils/app_validations/app_validations.dart';
-import '../../../../../widgets/buttons/buttons_with_icon_row.dart';
 import '../../../../../widgets/buttons/common_button.dart';
-import '../../../../../widgets/buttons/skip_for_now_button.dart';
 import '../../../../../widgets/dividers/customizedDivider.dart';
 import '../../../../../widgets/other/login_or_register_bottom_text.dart';
 import '../../../../data/values/images.dart';
@@ -20,6 +17,8 @@ import '../../../../styles/text_styles.dart';
 import '../../../widgets/textfields/textfield_heading_with _endText.dart';
 
 class AuthLoginView extends GetView<AuthLoginController> {
+  const AuthLoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +58,10 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                   SharedPreferences prefs =
                                       await SharedPreferences.getInstance();
                                   prefs.setString('token', '');
-                                  Navigator.of(context).pushNamedAndRemoveUntil(
-                                      Routes.DASHBOARD, (route) => false);
+                                  if(context.mounted){
+                                    Navigator.of(context).pushNamedAndRemoveUntil(
+                                        Routes.DASHBOARD, (route) => false);
+                                  }
                                 },
                               ),
                             ],
@@ -150,8 +151,11 @@ class AuthLoginView extends GetView<AuthLoginController> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
-                                onTap: (){
-                                  controller.isReadmeCheck.value = controller.isReadmeCheck.value==true?false:true;
+                                onTap: () {
+                                  controller.isReadmeCheck.value =
+                                      controller.isReadmeCheck.value == true
+                                          ? false
+                                          : true;
                                 },
                                 child: Row(
                                   children: [
@@ -165,7 +169,9 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                       focusColor: AppColors.white,
                                       hoverColor: AppColors.white,
                                       side: MaterialStateBorderSide.resolveWith(
-                                            (states) => const BorderSide(width: 1.0, color: AppColors.commonButton),
+                                        (states) => const BorderSide(
+                                            width: 1.0,
+                                            color: AppColors.commonButton),
                                       ),
                                     ),
                                     const Text(
@@ -176,48 +182,69 @@ class AuthLoginView extends GetView<AuthLoginController> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){
-                                  Navigator.pushNamed(context, Routes.FORGOT_PASSWORD);
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, Routes.FORGOT_PASSWORD);
                                 },
                                 child: Text(AppStrings.forgotPassword,
-                                    style:
-                                        const TextStyle(color: AppColors.white)),
+                                    style: const TextStyle(
+                                        color: AppColors.white)),
                               )
                             ],
                           ),
                           20.hb,
                           CommonButton(
-                            buttonText: AppStrings.login,
-                            isDisabled:
-                                controller.isButtonEnabled.value == false
-                                    ? true
-                                    : false,
-                            textStyle: Styles.tsb18
-                                .copyWith(color: AppColors.buttonText),
-                            color: AppColors.commonButton,
-                            borderRadius: 10.0,
-                            onPressed: () async {
-                              if (controller.loginFormKey.currentState!
-                                  .validate()) {
-                                controller.signUserIn;
-                                Navigator.pushNamed(context, Routes.HOME);
-                                SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                                prefs.setString('token', 'login');
-                                // Navigator.pushNamedAndRemoveUntil(
-                                //     context, Routes.dashboard, (route) => false);
-                              }
-                            },
-                          ),
+                                  buttonText: AppStrings.login,
+                                  isDisabled:
+                                      controller.isButtonEnabled.value == false
+                                          ? true
+                                          : false,
+                                  textStyle: Styles.tsb18
+                                      .copyWith(color: AppColors.buttonText),
+                                  color: AppColors.commonButton,
+                                  borderRadius: 10.0,
+                                  onPressed: () async {
+                                    if (controller.loginFormKey.currentState!
+                                        .validate()) {
+                                      if (await controller.logInUser(
+                                          email:
+                                          controller.emailController.text,
+                                          password: controller
+                                              .passwordController.text) == 'success') {
+                                        if(context.mounted){
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(
+                                              content: Text('Logined Successfully'),
+                                            ),
+                                          );
+                                          Navigator.pushNamedAndRemoveUntil(
+                                              context, Routes.DASHBOARD, (route) => false);
+                                        }
+                                      } else {
+                                        if(context.mounted){
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(
+                                              content: Text('Error Check password or email'),
+                                            ),
+                                          );
+                                        }
+                                      }
+
+                                    }
+                                  },
+                                ),
                           20.hb,
                           const CustomizedDivider(),
                           20.hb,
                           Container(
-                            padding:const EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SvgPicture.asset(Images.google,height: 50,),
+                                SvgPicture.asset(
+                                  Images.google,
+                                  height: 50,
+                                ),
                                 SvgPicture.asset(Images.facebook, height: 50),
                                 SvgPicture.asset(Images.discord, height: 50)
                               ],

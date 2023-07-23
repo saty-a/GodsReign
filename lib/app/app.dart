@@ -20,7 +20,6 @@ class App extends StatelessWidget {
       getPages: AppPages.pages,
       defaultTransition: Transition.fade,
       initialBinding: AppBinding(),
-
     );
   }
 }

@@ -10,9 +10,11 @@ import 'package:godreign/base/base_controller.dart';
 import 'package:godreign/utils/helper/text_field_wrapper.dart';
 import 'package:godreign/utils/helper/validators.dart';
 import 'package:godreign/utils/loading/loading_utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthLoginController extends BaseController<UserRepository> {
   final mobileWrapper = TextFieldWrapper();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -22,11 +24,26 @@ class AuthLoginController extends BaseController<UserRepository> {
   var isButtonEnabled = false.obs;
   var emailOrPhone = "".obs;
   var isReadmeCheck=false.obs;
+  var isLogin=true.obs;
 
-  //sign user in
-  void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, password: passwordController.text);
+  Future<String> logInUser({
+    required String email,
+    required String password,
+  }) async {
+    String result = 'error';
+    try {
+      if (email.isNotEmpty || password.isNotEmpty) {
+        await _auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        SharedPreferences prefs =
+        await SharedPreferences.getInstance();
+        prefs.setString(_auth.currentUser.toString(), 'login');
+        result = 'success';
+      }
+    } catch (err) {
+      result = err.toString();
+    }
+    return result;
   }
 
   /// email

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/services.dart';
 
 void main() async {
   await initGetStorage();
+  await Firebase.initializeApp();
   /// Ensuring Size of the phone in UI Design
   await ScreenUtil.ensureScreenSize();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

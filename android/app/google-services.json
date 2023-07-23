@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567422574806",
+    "project_id": "godreign-f3a00",
+    "storage_bucket": "godreign-f3a00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567422574806:android:a727f37c0a567a1f482977",
+        "android_client_info": {
+          "package_name": "com.example.godreign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567422574806-ksnoq9hdh1j59rg9od6dgs1jcsj3usne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrIAuXHhksQy8_w6RSkpvtv0n-h-JXvBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567422574806-ksnoq9hdh1j59rg9od6dgs1jcsj3usne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
